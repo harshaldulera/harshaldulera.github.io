@@ -1,7 +1,6 @@
 ---
 title: Two Million HackTheBox Writeup 
 date: 2024-05-24
-categories: [HackTheBox]
 tags: [pentest, htb, ctf]
 ---
 
