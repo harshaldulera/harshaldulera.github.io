@@ -1,5 +1,7 @@
 <figure><img src="/assets/htb/TwoMillion/banner.png" alt="TwoMillion Banner"></figure>
 
+Two Million box was released to celebrate the milestone of two million users on HackTheBox. This box involves exploiting an older version of the HackTheBox dashboard, generating an invite code, registering using the invite code, and escalating privileges to www-data. Further privilege escalation is achieved by leveraging the environment variable file from www-data to admin. Finally, root access is obtained by exploiting the outdated kernel of the machine using the CVE-2023-0386 vulnerability in OverlayFS/FUSE.
+
 ### Target IP 10.10.11.221
 
 ## Enumeration
