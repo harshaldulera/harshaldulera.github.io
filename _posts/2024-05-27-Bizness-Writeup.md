@@ -7,6 +7,8 @@ tags: [pentest, htb, ctf]
 
 <figure><img src="/assets/htb/Bizness/card.png" alt="Banner of the machine."></figure>
 
+In this blog, we will be focusing on the 'Bizness' machine from HackTheBox. This blog will showcase the exploitation of the Apache OfBiz framework.
+
 ## Target IP: 10.10.11.252
 
 
