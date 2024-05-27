@@ -5,7 +5,7 @@ categories: [HackTheBox]
 tags: [pentest, htb, ctf]
 ---
 
-<figure><img src="/assets/htb/Bizness/card.png"></figure>
+<figure><img src="/assets/htb/Bizness/card.png" alt="Banner of the machine."></figure>
 
 ## Target IP: 10.10.11.252
 
@@ -224,7 +224,7 @@ with open(wordlist,'r',encoding='latin-1') as password_list:
 
 I got the password to be `monkeybizness` through which i was able to login as root.
 
-<figure><img src="/assets/htb/Bizness/root.png"></figure>
+<figure><img src="/assets/htb/Bizness/root.png" alt="Obtained shell as root."></figure>
 
 
 The machine has been rooted.
