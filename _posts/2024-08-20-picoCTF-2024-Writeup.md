@@ -28,6 +28,14 @@ picoCTF{g00d_gu355_bee04a2a}
 
 ### Time Machine
 
+<figure><img src="/assets/picoCTF/General-Skills/time-machine.png" alt="Solution for Time Machine"></figure>
+
+We were given a folder with a `.git` folder which has logs which basically serves the purpose of a time machine.
+
+Flag:
+```
+picoCTF{t1m3m@ch1n3_d3161c0f}
+```
 
 ## Forensics
 
